@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tiếng Anh chuyên ngành Ô tô</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="../link/css.css" />
+    <link rel="stylesheet" href="..//link/bootstrap.min.css" />
+    <link rel="stylesheet" href="../link/bootstrap.bundle.min.js" />
+    <link rel="stylesheet" href="../link/jquery.min.js" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        font-size: 24px;
+      }
+      .w3-half img {
+        margin-bottom: -6px;
+        margin-top: 16px;
+        opacity: 0.8;
+        cursor: pointer;
+      }
+      .w3-half img:hover {
+        opacity: 1;
+      }
+
+      /* Phần multichoice */
+      .container {
+        background-color: #555;
+        color: #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: "Montserrat", sans-serif;
+        max-width: 700px;
+      }
+
+      .container > p {
+        font-size: 32px;
+      }
+
+      /* .question {
+          width: 75%;
+        } */
+
+      .options {
+        position: relative;
+        padding-left: 40px;
+      }
+
+      #options label {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .options input {
+        opacity: 0;
+      }
+
+      .checkmark {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #555;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+      }
+
+      .options input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      .options .checkmark:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        display: block;
+        background: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 300ms ease-in-out 0s;
+      }
+
+      .options input[type="radio"]:checked ~ .checkmark {
+        background: #21bf73;
+        transition: 300ms ease-in-out 0s;
+      }
+
+      .options input[type="radio"]:checked ~ .checkmark:after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .btn-primary {
+        background-color: #555;
+        color: #ddd;
+        border: 1px solid #ddd;
+      }
+
+      .btn-primary:hover {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+      }
+
+      .btn-success {
+        padding: 5px 25px;
+        background-color: #21bf73;
+      }
+
+      /* #wright {
+    border: 1px solid forestgreen;
+    padding: 5px;
+} */
+
+      @media (max-width: 576px) {
+        .question {
+          width: 100%;
+          word-spacing: 2px;
+        }
+      }
+
+      img {
+        object-fit: scale-down;
+      }
+
+      /* Phần bảng từ vựng */
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      .btn-play {
+        height: 50px;
+        width: 100px;
+        border: none;
+        outline: none;
+        padding: 5px 25px;
+        background-color: #21bf73;
+      }
+
+      .btn-play.play {
+        background: url("http://omniawebfactory.com/unik/wp-content/uploads/2016/10/play-beli-1.png");
+        background-size: 100%;
+      }
+      .btn-play.pause {
+        background: url("http://omniawebfactory.com/unik/wp-content/uploads/2016/10/pause-beli-1.png");
+        background-size: 100%;
+      }
+
+      .h5 {
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar/menu -->
+    <nav
+      class="w3-sidebar w3-green w3-collapse w3-top w3-large w3-padding"
+      style="z-index: 3; width: 300px; font-weight: bold"
+      id="mySidebar"
+    >
+      <br />
+      <a
+        href="javascript:void(0)"
+        onclick="w3_close()"
+        class="w3-button w3-hide-large w3-display-topleft"
+        style="width: 100%; font-size: 22px"
+        >Close Menu</a
+      >
+      <div class="w3-container">
+        <h3 class="w3-padding-64">
+          <b
+            >Lesson 12<br />
+            BRAKING SYSTEM
+          </b>
+        </h3>
+      </div>
+      <div class="w3-bar-block">
+        <a
+          href="../index.html"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Home</a
+        >
+        <a
+          href="#component"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Component</a
+        >
+        <a
+          href="#vocabulary"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Vocabulary and Pharse</a
+        >
+        <a
+          href="#reading"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Reading</a
+        >
+        <a
+          href="#fillOfBlank"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Fill of Blank</a
+        >
+        <a
+          href="#multichoice"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Multichoice</a
+        >
+        <a
+          href="#dialogue"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Dialogue</a
+        >
+      </div>
+    </nav>
+
+    <!-- Top menu on small screens -->
+    <header
+      class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding"
+    >
+      <a
+        href="javascript:void(0)"
+        class="w3-button w3-red w3-margin-right"
+        onclick="w3_open()"
+        >☰</a
+      >
+      <span>Trường TCKT Miền Trung</span>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div
+      class="w3-overlay w3-hide-large"
+      onclick="w3_close()"
+      style="cursor: pointer"
+      title="close side menu"
+      id="myOverlay"
+    ></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+      <!-- Header -->
+      <div class="w3-container" style="margin-top: 80px" id="showcase">
+        <h1 class="w3-jumbo"><b> BRAKING SYSTEM </b></h1>
+        <h1 class="w3-xxxlarge w3-text-red"><b>Introduction</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <p>Chapter 12, 'Braking System,' explores the essential mechanisms that ensure vehicle safety through controlled deceleration. We'll begin by examining the components of a braking system, including the brake pedal, fluid reservoir, fluid lines, brake pads, and shoes, understanding their functions in converting kinetic energy into heat. You'll learn about the fundamentals of brake systems, focusing on hydraulic principles and how they transmit force from the pedal to the wheels. A significant portion will be dedicated to understanding drum and disc brake assemblies, covering their operating principles and key differences. We'll also discuss the role of the master cylinder and vacuum booster in enhancing braking performance. By studying this chapter, you'll gain a comprehensive understanding of braking system operation and maintenance, vital for automotive technicians.</p>
+      </div>
+
+      <!-- COmponent -->
+      <div class="w3-container" id="component" style="margin-top: 75px">
+        <!-- <h1 class="w3-xxxlarge w3-text-red"><b>Component.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <img src="../image/img1.png" alt="" usemap="#b12" style="width: 100%" />
+        <map name="b12"
+          ><area
+            shape="rect"
+            coords="185,780,247,826"
+            href=""
+            title="Bàn đạp ly hợp"
+        /></map> -->
+      </div>
+
+      <!-- Vocabulary and pharse -->
+      <div class="w3-container" id="vocabulary" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Vocabulary and pharse.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <h2>Từ vựng chuyên ngành</h2>
+        <table style="width: 100%">
+          <thead>
+            <tr>
+              <th style="width: 25%">Từ vựng</th>
+              <th style="width: 25%">Phiên âm</th>
+              <th style="width: 25%">Phát âm</th>
+              <th style="width: 25%">Nghĩa</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!-- <audio src="../audio/vocabylary1/Amphibious vehicles.mp3"></audio> -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Reading -->
+      <div class="w3-container" id="reading" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Reading.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <h3>The Braking System: Stopping Power</h3> 
+        <p>The braking system is a critical safety feature in any vehicle, designed to slow down or stop a moving vehicle and to hold it stationary when parked. It works as an energy-absorbing mechanism, converting the vehicle's kinetic energy into heat through friction.   <br></br>
+          Hydraulic Brake System<br></br>
+          Most modern vehicles utilize a hydraulic brake system. This system uses brake fluid to transfer pressure from the brake pedal to the brake pads or brake shoes that create the friction needed to stop the wheels.  Brake fluid is incompressible, meaning that the pressure applied to the brake pedal is transmitted consistently throughout the system.   <br></br>
+          The master cylinder is a key component of the hydraulic brake system. When the driver depresses the brake pedal, a pushrod activates a piston within the master cylinder, pressurizing the brake fluid and transmitting that pressure through fluid lines (the pipes) to the calipers or wheel cylinders at each wheel.   <br></br>
+          Drum and Disc Brakes<br></br>
+          There are two main types of braking systems:<br></br>
+          Drum Brakes: These use brake shoes with brake lining that press against the inside of a rotating brake drum to generate friction.  The anchor pin plays a crucial role in the self-energizing action of drum brakes, creating a wedging action that multiplies the braking force.   <br></br>
+          Disc Brakes: These use brake pads that be squeezed against both sides of a rotating rotor. The caliper, which houses the brake pads and pistons, is mounted to the steering knuckle.  Calipers can be floating or fixed.  <br></br> 
+          Brake System Components<br></br>
+          In addition to the components mentioned above, a complete braking system may also include:<br></br>
+          Fluid Reservoir: Stores the brake fluid.   <br></br>
+          Vacuum Booster: Assists the driver in applying the brakes, reducing the effort required. <br></br>  
+          Seals, Springs, Bleeder Screws, and Boots: These components ensure proper operation and maintenance of the system.
+          Understanding the fundamentals of braking systems is essential for technicians to diagnose and repair brake-related problems, ensuring safe and reliable vehicle operation.
+          </p>
+      </div>
+
+      <!-- Fill of blank -->
+      <div class="w3-container" id="fillOfBlank" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Fill of Blank.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+
+        <div id="question-box"></div>
+      </div>
+
+      <!-- Multichoice -->
+      <div class="w3-container" id="multichoice" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Multichoice</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+
+        <div id="fillbox"></div>
+        <div class="btnbox">
+          <button
+            class="btn btn-primary"
+            id="btn-fill-point"
+            style="margin-right: 24px"
+          >
+            Answer:
+          </button>
+          <span id="fillresult">Kết quả</span>
+        </div>
+      </div>
+
+      <!-- Dialogue -->
+      <div class="w3-container" id="dialogue" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Dialogue.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+       
+        <div>
+          <video width="100%" controls class="player" id="myvideo">
+            <source src="../video/Bài 12.mov" />
+          </video>
+          <button type="text" class="btn-play" id="play">Play</button>
+        </div>
+      </div>
+
+      <!-- End page content -->
+    </div>
+
+    <!-- W3.CSS Container -->
+    <div
+      class="w3-light-grey w3-container w3-padding-32"
+      style="margin-top: 75px; padding-right: 58px"
+    >
+      <p class="w3-right">
+        Powered by
+        <a href="#" title="W3.CSS" target="_blank" class="w3-hover-opacity"
+          >HongHai-Team</a
+        >
+      </p>
+    </div>
+
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+
+      // Modal Image Gallery
+      function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+    </script>
+
+    <!-- <script type = "module" src = "../js/script.js"></script> -->
+    <!-- <script type="module" src="../data/data.js"></script> -->
+    <script src="./lesson12.js"></script>
+  </body>
+</html>

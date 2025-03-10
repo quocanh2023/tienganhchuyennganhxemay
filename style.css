@@ -1,0 +1,142 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+    height     : 1000px;
+    width      : 100%;
+    margin: 0 auto;
+}
+
+/* Style the header */
+header {
+    background-color: #eee;
+    padding: 30px;
+    text-align: center;
+    /* font-size: 35px; */
+    color: #333;
+    /* height: 100px; */
+    margin: 0;
+}
+
+.navbar{
+    margin: 0px;
+    padding: 0;
+    background-color: #333;
+}
+
+.navbar ul{
+    margin: 0px;
+   padding: 15px;
+    justify-content:center;
+    display: flex;
+    gap: 25px;
+    color: white;
+}
+
+.navbar ul li a {
+    color: white;
+    padding: 15px 5px;
+}
+
+.navbar ul li a:active{
+    background-color: forestgreen;
+}
+
+.navbar ul li 
+a:hover {
+    background-color: #111;
+}
+/* Create two columns/boxes that floats next to each other */
+nav {
+    float: left;
+    width: 15%;
+    /* height: 300px; */
+    /* only for demonstration, should be removed */
+    background: #ccc;
+    padding: 20px;
+}
+
+/* Style the list inside the menu */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li a {
+    font-size: 18px;
+    text-decoration: none;
+    
+}
+
+article {
+    float: left;
+    padding: 20px;
+    width: 85%;
+    background-color: #f1f1f1;
+    /* height: 300px; */
+    /* only for demonstration, should be removed */
+}
+
+/* hiển thị đáp án đúng */
+.wright {
+    /* display: none; */
+    border       : 2px solid forestgreen;
+    padding      : 5px;
+    border-radius: 10px;
+    position: relative;
+    
+}
+
+.wright::after {
+    content: '\2713';
+    position        : absolute;
+    color           : forestgreen;
+    right           : 10px;
+    top             : 10%;
+    background-color: none;
+    font-size: 24px;
+  }
+
+    /* Hiển thị đáp án sai */
+    .wrong{
+        /* display: none; */
+        border       : 2px solid red;
+        padding      : 5px;
+        border-radius: 10px;
+        position: relative;
+        
+    }
+    
+    .wrong::after {
+        content: '\2715';
+        position        : absolute;
+        color           : red;
+        right           : 10px;
+        top             : 10%;
+        background-color: none;
+        font-size: 24px;
+      }
+
+
+      .btnbox {
+        margin-top: 54px;
+      }
+
+/* Clear floats after the columns */
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the footer */
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}

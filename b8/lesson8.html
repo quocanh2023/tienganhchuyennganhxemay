@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tiếng Anh chuyên ngành Ô tô</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="../link/css.css" />
+    <link rel="stylesheet" href="..//link/bootstrap.min.css" />
+    <link rel="stylesheet" href="../link/bootstrap.bundle.min.js" />
+    <link rel="stylesheet" href="../link/jquery.min.js" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        font-size: 24px;
+      }
+      .w3-half img {
+        margin-bottom: -6px;
+        margin-top: 16px;
+        opacity: 0.8;
+        cursor: pointer;
+      }
+      .w3-half img:hover {
+        opacity: 1;
+      }
+
+      /* Phần multichoice */
+      .container {
+        background-color: #555;
+        color: #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: "Montserrat", sans-serif;
+        max-width: 700px;
+      }
+
+      .container > p {
+        font-size: 32px;
+      }
+
+      /* .question {
+          width: 75%;
+        } */
+
+      .options {
+        position: relative;
+        padding-left: 40px;
+      }
+
+      #options label {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .options input {
+        opacity: 0;
+      }
+
+      .checkmark {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #555;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+      }
+
+      .options input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      .options .checkmark:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        display: block;
+        background: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 300ms ease-in-out 0s;
+      }
+
+      .options input[type="radio"]:checked ~ .checkmark {
+        background: #21bf73;
+        transition: 300ms ease-in-out 0s;
+      }
+
+      .options input[type="radio"]:checked ~ .checkmark:after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .btn-primary {
+        background-color: #555;
+        color: #ddd;
+        border: 1px solid #ddd;
+      }
+
+      .btn-primary:hover {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+      }
+
+      .btn-success {
+        padding: 5px 25px;
+        background-color: #21bf73;
+      }
+
+      /* #wright {
+    border: 1px solid forestgreen;
+    padding: 5px;
+} */
+
+      @media (max-width: 576px) {
+        .question {
+          width: 100%;
+          word-spacing: 2px;
+        }
+      }
+
+      img {
+        object-fit: scale-down;
+      }
+
+      /* Phần bảng từ vựng */
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      .btn-play {
+        height: 50px;
+        width: 100px;
+        border: none;
+        outline: none;
+        padding: 5px 25px;
+        background-color: #21bf73;
+      }
+
+      .btn-play.play {
+        background: url("http://omniawebfactory.com/unik/wp-content/uploads/2016/10/play-beli-1.png");
+        background-size: 100%;
+      }
+      .btn-play.pause {
+        background: url("http://omniawebfactory.com/unik/wp-content/uploads/2016/10/pause-beli-1.png");
+        background-size: 100%;
+      }
+
+      .h5 {
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar/menu -->
+    <nav
+      class="w3-sidebar w3-green w3-collapse w3-top w3-large w3-padding"
+      style="z-index: 3; width: 300px; font-weight: bold"
+      id="mySidebar"
+    >
+      <br />
+      <a
+        href="javascript:void(0)"
+        onclick="w3_close()"
+        class="w3-button w3-hide-large w3-display-topleft"
+        style="width: 100%; font-size: 22px"
+        >Close Menu</a
+      >
+      <div class="w3-container">
+        <h3 class="w3-padding-64">
+          <b>Lesson 8<br />AUTOMOTIVE CLUTCHES </b>
+        </h3>
+      </div>
+      <div class="w3-bar-block">
+        <a
+          href="../index.html"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Home</a
+        >
+        <a
+          href="#component"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Component</a
+        >
+        <a
+          href="#vocabulary"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Vocabulary and Pharse</a
+        >
+        <a
+          href="#reading"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Reading</a
+        >
+        <a
+          href="#fillOfBlank"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Fill of Blank</a
+        >
+        <a
+          href="#multichoice"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Multichoice</a
+        >
+        <a
+          href="#dialogue"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Dialogue</a
+        >
+      </div>
+    </nav>
+
+    <!-- Top menu on small screens -->
+    <header
+      class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding"
+    >
+      <a
+        href="javascript:void(0)"
+        class="w3-button w3-red w3-margin-right"
+        onclick="w3_open()"
+        >☰</a
+      >
+      <span>Trường TCKT Miền Trung</span>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div
+      class="w3-overlay w3-hide-large"
+      onclick="w3_close()"
+      style="cursor: pointer"
+      title="close side menu"
+      id="myOverlay"
+    ></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+      <!-- Header -->
+      <div class="w3-container" style="margin-top: 80px" id="showcase">
+        <h1 class="w3-jumbo"><b>AUTOMOTIVE CLUTCHES </b></h1>
+        <h1 class="w3-xxxlarge w3-text-red"><b>Introduction</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+     <p>Chapter 8, 'Automotive Clutches,' explores the essential role of clutches in manual transmission vehicles. We'll begin by examining the components of an automotive clutch, including the flywheel, clutch disc, pressure plate, and release levers, understanding their functions in engaging and disengaging the engine from the transmission. You'll learn the working principle of a clutch, focusing on how it allows for smooth gear shifting and prevents engine stalling. A significant portion will be dedicated to clutch adjustment, covering mechanical linkage, pressure plate, and clutch cable adjustments, emphasizing the importance of proper free play. We'll also discuss the different types of friction facings and their impact on clutch performance. By studying this chapter, you'll gain a comprehensive understanding of clutch operation and maintenance, vital for automotive technicians.</p>
+      </div>
+
+      <!-- COmponent -->
+      <div class="w3-container" id="component" style="margin-top: 75px">
+         <h1 class="w3-xxxlarge w3-text-red"><b>Component.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <!--<img src="../image/img1.png" alt="" usemap="#b12" style="width: 100%" />
+        <map name="b12"
+          ><area
+            shape="rect"
+            coords="185,780,247,826"
+            href=""
+            title="Bàn đạp ly hợp"
+        /></map> -->
+      </div>
+
+      <!-- Vocabulary and pharse -->
+      <div class="w3-container" id="vocabulary" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Vocabulary and pharse.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <h2>Từ vựng chuyên ngành</h2>
+        <table style="width: 100%">
+          <thead>
+            <tr>
+              <th style="width: 25%">Từ vựng</th>
+              <th style="width: 25%">Phiên âm</th>
+              <th style="width: 25%">Phát âm</th>
+              <th style="width: 25%">Nghĩa</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!-- <audio src="../audio/vocabylary1/Amphibious vehicles.mp3"></audio> -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Reading -->
+      <div class="w3-container" id="reading" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Reading.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <h3>The Automotive Clutch</h3>
+        <p>
+          The automotive clutch is a key component in vehicles with manual transmissions. Located between the engine and transmission, it allows the driver to temporarily disconnect the engine from the transmission, enabling smooth shifting between gears. This function is essential for starting the vehicle from a standstill and for changing gears without damaging the transmission.<br></br>
+          Clutch Components and Operation<br></br>
+          The clutch assembly consists of several key components:<br></br>
+          Flywheel: A heavy rotating disc attached to the engine crankshaft. It serves as one of the driving members of the clutch.
+          Clutch Disc: A friction disc that is splined to the transmission's input shaft. It transmits torque from the engine to the transmission.<br></br>
+          Pressure Plate: A spring-loaded plate that clamps the clutch disc against the flywheel.<br></br>
+          Clutch Cover: The clutch housing that houses the pressure plate, release levers, and pressure springs.<br></br>
+          Release Bearing: A bearing that, when activated by the clutch pedal, pushes on the release levers to disengage the clutch.<br></br>
+          Linkage: A mechanical linkage connects the clutch pedal in the passenger compartment to the release bearing.<br></br>
+          When the clutch pedal is released (engaged), the pressure plate clamps the clutch disc against the flywheel, allowing the engine to turn the transmission. When the clutch pedal is pressed (disengaged), the release bearing pushes on the release levers, releasing the pressure on the clutch disc and interrupting the flow of power.<br></br>
+          Clutch Adjustment<br></br>
+          Proper adjustment of the clutch is crucial for smooth operation and to prevent premature wear. There are three main types of adjustment:<br></br>
+          Clutch Linkage Adjustment: This adjustment ensures the correct amount of free play in the clutch pedal. Too much free play can cause the clutch to drag, while too little can lead to clutch slippage.<br></br>
+          Pressure Plate Adjustment: This adjustment is typically performed when a new pressure plate is installed. It involves setting the correct clearance between the pressure plate and the clutch cover.<br></br>
+          Clutch Cable Adjustment: This adjustment is used to maintain the correct pedal height and free play by adjusting the length of the clutch cable.<br></br>
+          By understanding the function and adjustment of the automotive clutch, technicians can effectively diagnose and repair clutch-related problems, ensuring smooth and efficient vehicle operation.<br></br>
+
+        </p>
+      </div>
+
+      <!-- Fill of blank -->
+      <div class="w3-container" id="fillOfBlank" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Fill of Blank.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+
+        <div id="question-box"></div>
+      </div>
+
+      <!-- Multichoice -->
+      <div class="w3-container" id="multichoice" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Multichoice</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+
+        <div id="fillbox"></div>
+        <div class="btnbox">
+          <button
+            class="btn btn-primary"
+            id="btn-fill-point"
+            style="margin-right: 24px"
+          >
+            Answer:
+          </button>
+          <span id="fillresult">Kết quả</span>
+        </div>
+      </div>
+
+      <!-- Dialogue -->
+      <div class="w3-container" id="dialogue" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Dialogue.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+       
+        <div>
+          <video width="100%" controls class="player" id="myvideo">
+            <source src="../video/Bài 8.mov" />
+          </video>
+          <button type="text" class="btn-play" id="play">Play</button>
+        </div>
+      </div>
+
+      <!-- End page content -->
+    </div>
+
+    <!-- W3.CSS Container -->
+    <div
+      class="w3-light-grey w3-container w3-padding-32"
+      style="margin-top: 75px; padding-right: 58px"
+    >
+      <p class="w3-right">
+        Powered by
+        <a href="#" title="W3.CSS" target="_blank" class="w3-hover-opacity"
+          >HongHai-Team</a
+        >
+      </p>
+    </div>
+
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+
+      // Modal Image Gallery
+      function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+    </script>
+
+    <!-- <script type = "module" src = "../js/script.js"></script> -->
+    <!-- <script type="module" src="../data/data.js"></script> -->
+    <script src="./lesson8.js"></script>
+  </body>
+</html>

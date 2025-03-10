@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tiếng Anh chuyên ngành Ô tô</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="../link/css.css" />
+    <link rel="stylesheet" href="..//link/bootstrap.min.css" />
+    <link rel="stylesheet" href="../link/bootstrap.bundle.min.js" />
+    <link rel="stylesheet" href="../link/jquery.min.js" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        font-size: 24px;
+      }
+      .w3-half img {
+        margin-bottom: -6px;
+        margin-top: 16px;
+        opacity: 0.8;
+        cursor: pointer;
+      }
+      .w3-half img:hover {
+        opacity: 1;
+      }
+
+      /* Phần multichoice */
+      .container {
+        background-color: #555;
+        color: #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: "Montserrat", sans-serif;
+        max-width: 700px;
+      }
+
+      .container > p {
+        font-size: 32px;
+      }
+
+      /* .question {
+          width: 75%;
+        } */
+
+      .options {
+        position: relative;
+        padding-left: 40px;
+      }
+
+      #options label {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .options input {
+        opacity: 0;
+      }
+
+      .checkmark {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #555;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+      }
+
+      .options input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      .options .checkmark:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        display: block;
+        background: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 300ms ease-in-out 0s;
+      }
+
+      .options input[type="radio"]:checked ~ .checkmark {
+        background: #21bf73;
+        transition: 300ms ease-in-out 0s;
+      }
+
+      .options input[type="radio"]:checked ~ .checkmark:after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .btn-primary {
+        background-color: #555;
+        color: #ddd;
+        border: 1px solid #ddd;
+      }
+
+      .btn-primary:hover {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+      }
+
+      .btn-success {
+        padding: 5px 25px;
+        background-color: #21bf73;
+      }
+
+      /* #wright {
+    border: 1px solid forestgreen;
+    padding: 5px;
+} */
+
+      @media (max-width: 576px) {
+        .question {
+          width: 100%;
+          word-spacing: 2px;
+        }
+      }
+
+      img {
+        object-fit: scale-down;
+      }
+
+      /* Phần bảng từ vựng */
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      .btn-play {
+        height: 50px;
+        width: 100px;
+        border: none;
+        outline: none;
+        padding: 5px 25px;
+        background-color: #21bf73;
+      }
+
+      .btn-play.play {
+        background: url("http://omniawebfactory.com/unik/wp-content/uploads/2016/10/play-beli-1.png");
+        background-size: 100%;
+      }
+      .btn-play.pause {
+        background: url("http://omniawebfactory.com/unik/wp-content/uploads/2016/10/pause-beli-1.png");
+        background-size: 100%;
+      }
+
+      .h5 {
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar/menu -->
+    <nav
+      class="w3-sidebar w3-green w3-collapse w3-top w3-large w3-padding"
+      style="z-index: 3; width: 300px; font-weight: bold"
+      id="mySidebar"
+    >
+      <br />
+      <a
+        href="javascript:void(0)"
+        onclick="w3_close()"
+        class="w3-button w3-hide-large w3-display-topleft"
+        style="width: 100%; font-size: 22px"
+        >Close Menu</a
+      >
+      <div class="w3-container">
+        <h3 class="w3-padding-64">
+          <b>Lesson 13<br />SUSPENSION SYSTEM</b>
+        </h3>
+      </div>
+      <div class="w3-bar-block">
+        <a
+          href="../index.html"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Home</a
+        >
+        <a
+          href="#component"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Component</a
+        >
+        <a
+          href="#vocabulary"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Vocabulary and Pharse</a
+        >
+        <a
+          href="#reading"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Reading</a
+        >
+        <a
+          href="#fillOfBlank"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Fill of Blank</a
+        >
+        <a
+          href="#multichoice"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Multichoice</a
+        >
+        <a
+          href="#dialogue"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Dialogue</a
+        >
+      </div>
+    </nav>
+
+    <!-- Top menu on small screens -->
+    <header
+      class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding"
+    >
+      <a
+        href="javascript:void(0)"
+        class="w3-button w3-red w3-margin-right"
+        onclick="w3_open()"
+        >☰</a
+      >
+      <span>Trường TCKT Miền Trung</span>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div
+      class="w3-overlay w3-hide-large"
+      onclick="w3_close()"
+      style="cursor: pointer"
+      title="close side menu"
+      id="myOverlay"
+    ></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+      <!-- Header -->
+      <div class="w3-container" style="margin-top: 80px" id="showcase">
+        <h1 class="w3-jumbo"><b> SUSPENSION SYSTEM</b></h1>
+        <h1 class="w3-xxxlarge w3-text-red"><b>Introduction</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <p>Chapter 13, 'Suspension System,' explores the mechanisms that ensure a smooth and stable ride by absorbing road shocks. We'll begin by examining the components of a suspension system, including knuckles, linkages, wheels, dampers, and springs, understanding their roles in isolating the vehicle from road irregularities. You'll learn about the fundamentals of suspension systems, focusing on their purpose in enhancing comfort and vehicle control. A significant portion will be dedicated to understanding various types of springs, including leaf, coil, torsion bar, and air springs, and their applications in different vehicle designs. We'll also cover the function of dampers or shock absorbers in controlling spring oscillations and improving ride quality. By studying this chapter, you'll gain a comprehensive understanding of suspension system operation and design, essential for automotive technicians.</p>
+      </div>
+
+      <!-- COmponent -->
+      <div class="w3-container" id="component" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Component.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <img
+          src="../image/img131.png"
+          alt=""
+          usemap="#b12"
+          style="width: 100%"
+          height="100%"
+        />
+   
+      </div>
+
+      <!-- Vocabulary and pharse -->
+      <div class="w3-container" id="vocabulary" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Vocabulary and pharse.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <h2>Từ vựng chuyên ngành</h2>
+        <table style="width: 100%">
+          <thead>
+            <tr>
+              <th style="width: 25%">Từ vựng</th>
+              <th style="width: 25%">Phiên âm</th>
+              <th style="width: 25%">Phát âm</th>
+              <th style="width: 25%">Nghĩa</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!-- <audio src="../audio/vocabylary1/Amphibious vehicles.mp3"></audio> -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Reading -->
+      <div class="w3-container" id="reading" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Reading.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <h3>The Suspension System</h3>
+        <p>The suspension system in a vehicle plays a vital role in ensuring a comfortable and controlled ride for the occupants. It does this by isolating the vehicle body from the vertical movement of the wheels as they pass over bumps and dips in the road. This prevents excessive shocks from being transmitted to the vehicle body, which could cause discomfort or damage.   <br></br>
+          Types of Springs<br></br>
+          The suspension system relies on springs to absorb and dampen these shocks. There are several types of springs commonly used in vehicles:   <br></br>
+          Leaf Springs: These are simple, robust springs that also serve as an axle-locating device. They can be either multi-leaf or single parabolic. However, they can be stiff and may not offer the best ride comfort.  <br></br> 
+          Coil Springs (Helical Springs): These are more compact and offer better ride comfort than leaf springs. They are widely used in modern vehicles.   <br></br>
+          Torsion Bars: These are simple, torsion-type springs that can be easily adjusted to change the ground clearance of the vehicle.   <br></br>
+          Air Springs: These offer a variable spring rate and can be adjusted to maintain a constant vehicle height regardless of load. They are often used in luxury vehicles and heavy-duty applications.   <br></br>
+          Dampers (Shock Absorbers)<br></br>
+          In addition to springs, the suspension system also includes dampers (also known as shock absorbers). These components help to control the movement of the springs, preventing excessive bouncing and ensuring that the wheels maintain contact with the road surface.  <br></br> 
+          Suspension System Components<br></br>
+          Other important components of the suspension system include:<br></br>
+          Knuckle (Upright): Connects the wheel's hub to the suspension arms.   <br></br>
+          Wishbones or A-arms: Control the movement of the wheels and help to maintain proper alignment.   <br></br>
+          Solid Axle or Live Axle: A rigid axle that connects the wheels on one side of the vehicle.   <br></br>
+          Multiple Links: Used in independent suspension systems to provide precise control of wheel movement.   <br></br>
+          Anti-Sway Bars (Anti-roll bars): Help to reduce body roll during cornering conditions.   <br></br>
+          Ball Joints: Allow for flexible movement of the suspension components.   <br></br>
+          By understanding the function and components of the suspension system, technicians can diagnose and repair suspension-related problems, ensuring a safe and comfortable ride for the vehicle's occupants.
+          </p>
+      </div>
+
+      <!-- Fill of blank -->
+      <div class="w3-container" id="fillOfBlank" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Fill of Blank.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+
+        <div id="question-box"></div>
+        <!-- <div class="btnbox">
+          <button
+            class="btn btn-primary"
+            id="btn_ultil_point"
+            style="margin-right: 24px"
+          >
+            Answer:
+          </button>
+          <span id="multichoice-result">Kết quả</span>
+        </div> -->
+      </div>
+
+      <!-- Multichoice -->
+      <div class="w3-container" id="multichoice" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Multichoice</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+
+        <div id="fillbox"></div>
+        <div class="btnbox">
+          <button
+            class="btn btn-primary"
+            id="btn-fill-point"
+            style="margin-right: 24px"
+          >
+            Answer:
+          </button>
+          <span id="fillresult">Kết quả</span>
+        </div>
+      </div>
+
+      <!-- Dialogue -->
+      <div class="w3-container" id="dialogue" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Dialogue.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+      
+        <div>
+          <video width="100%" controls class="player" id="myvideo">
+            <source src="../video/Bài 13.mp4" />
+          </video>
+          <button type="text" class="btn-play" id="play">Play</button>
+        </div>
+      </div>
+
+      <!-- End page content -->
+    </div>
+
+    <!-- W3.CSS Container -->
+    <div
+      class="w3-light-grey w3-container w3-padding-32"
+      style="margin-top: 75px; padding-right: 58px"
+    >
+      <p class="w3-right">
+        Powered by
+        <a href="#" title="W3.CSS" target="_blank" class="w3-hover-opacity"
+          >HongHai-Team</a
+        >
+      </p>
+    </div>
+
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+
+      // Modal Image Gallery
+      function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+    </script>
+
+    <!-- <script type = "module" src = "../js/script.js"></script> -->
+    <!-- <script type="module" src="../data/data.js"></script> -->
+    <script src="./lesson13.js"></script>
+  </body>
+</html>

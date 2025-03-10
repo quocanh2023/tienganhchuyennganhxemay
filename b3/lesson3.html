@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tiếng Anh chuyên ngành Ô tô</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="../link/css.css" />
+    <link rel="stylesheet" href="..//link/bootstrap.min.css" />
+    <link rel="stylesheet" href="../link/bootstrap.bundle.min.js" />
+    <link rel="stylesheet" href="../link/jquery.min.js" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        font-size: 24px;
+      }
+      .w3-half img {
+        margin-bottom: -6px;
+        margin-top: 16px;
+        opacity: 0.8;
+        cursor: pointer;
+      }
+      .w3-half img:hover {
+        opacity: 1;
+      }
+
+      /* Phần multichoice */
+      .container {
+        background-color: #555;
+        color: #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: "Montserrat", sans-serif;
+        max-width: 700px;
+      }
+
+      .container > p {
+        font-size: 32px;
+      }
+
+      /* .question {
+          width: 75%;
+        } */
+
+      .options {
+        position: relative;
+        padding-left: 40px;
+      }
+
+      #options label {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .options input {
+        opacity: 0;
+      }
+
+      .checkmark {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #555;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+      }
+
+      .options input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      .options .checkmark:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        display: block;
+        background: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 300ms ease-in-out 0s;
+      }
+
+      .options input[type="radio"]:checked ~ .checkmark {
+        background: #21bf73;
+        transition: 300ms ease-in-out 0s;
+      }
+
+      .options input[type="radio"]:checked ~ .checkmark:after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .btn-primary {
+        background-color: #555;
+        color: #ddd;
+        border: 1px solid #ddd;
+      }
+
+      .btn-primary:hover {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+      }
+
+      .btn-success {
+        padding: 5px 25px;
+        background-color: #21bf73;
+      }
+
+      /* #wright {
+    border: 1px solid forestgreen;
+    padding: 5px;
+} */
+
+      @media (max-width: 576px) {
+        .question {
+          width: 100%;
+          word-spacing: 2px;
+        }
+      }
+
+      img {
+        object-fit: scale-down;
+      }
+
+      /* Phần bảng từ vựng */
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      .btn-play {
+        height: 50px;
+        width: 100px;
+        border: none;
+        outline: none;
+        padding: 5px 25px;
+        background-color: #21bf73;
+      }
+
+      .btn-play.play {
+        background: url("http://omniawebfactory.com/unik/wp-content/uploads/2016/10/play-beli-1.png");
+        background-size: 100%;
+      }
+      .btn-play.pause {
+        background: url("http://omniawebfactory.com/unik/wp-content/uploads/2016/10/pause-beli-1.png");
+        background-size: 100%;
+      }
+
+      .h5 {
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar/menu -->
+    <nav
+      class="w3-sidebar w3-green w3-collapse w3-top w3-large w3-padding"
+      style="z-index: 3; width: 300px; font-weight: bold"
+      id="mySidebar"
+    >
+      <br />
+      <a
+        href="javascript:void(0)"
+        onclick="w3_close()"
+        class="w3-button w3-hide-large w3-display-topleft"
+        style="width: 100%; font-size: 22px"
+        >Close Menu</a
+      >
+      <div class="w3-container">
+        <h3 class="w3-padding-64">
+          <b>Lesson 3<br />ASSEMBLY AND DISASSEMBLY TOOLS</b>
+        </h3>
+      </div>
+      <div class="w3-bar-block">
+        <a
+          href="../index.html"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Home</a
+        >
+        <a
+          href="#component"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Component</a
+        >
+        <a
+          href="#vocabulary"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Vocabulary and Pharse</a
+        >
+        <a
+          href="#reading"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Reading</a
+        >
+        <a
+          href="#fillOfBlank"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Fill of Blank</a
+        >
+        <a
+          href="#multichoice"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Multichoice</a
+        >
+        <a
+          href="#dialogue"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Dialogue</a
+        >
+      </div>
+    </nav>
+
+    <!-- Top menu on small screens -->
+    <header
+      class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding"
+    >
+      <a
+        href="javascript:void(0)"
+        class="w3-button w3-red w3-margin-right"
+        onclick="w3_open()"
+        >☰</a
+      >
+      <span>Trường TCKT Miền Trung</span>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div
+      class="w3-overlay w3-hide-large"
+      onclick="w3_close()"
+      style="cursor: pointer"
+      title="close side menu"
+      id="myOverlay"
+    ></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+      <!-- Header -->
+      <div class="w3-container" style="margin-top: 80px" id="showcase">
+        <h1 class="w3-jumbo"><b> ENGINE CONSTRUCTION</b></h1>
+        <h1 class="w3-xxxlarge w3-text-red"><b>Introduction</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <p>Chapter 3, 'Engine Construction,' delves into the intricate workings of internal combustion engines. We'll begin by examining the key components of an engine, from the cylinder head and block to the pistons, crankshaft, and valve train, understanding their roles in power generation. You'll learn the distinctions between spark ignition (SI) and compression ignition (CI) engines, focusing on their unique operational characteristics. We'll cover essential terminology like bore, stroke, TDC, and BDC, providing a solid foundation for engine analysis. A significant portion will be dedicated to understanding the four-stroke engine cycle, including intake, compression, power, and exhaust strokes, for both gasoline and diesel engines. We'll also explore the specific differences in diesel engine construction and operation, emphasizing their higher compression and torque output. By studying this chapter, you'll gain a comprehensive understanding of engine construction and operation, crucial for automotive professionals.</p>
+      </div>
+
+      <!-- COmponent -->
+      <div class="w3-container" id="component" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Component.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+         <img src="../image/img31.png" alt="" usemap="#b12" style =  "height: auto;
+         min-height: 350px;
+         max-width: 100%;
+         display: block;
+         margin-left: auto;
+         margin-right: auto;"/>
+        <!-- <map name="b12"
+          ><area
+            shape="rect"
+            coords="185,780,247,826"
+            href=""
+            title="Bàn đạp ly hợp"
+
+        /></map>  -->
+        <p style="text-align: center;"><strong>Figure 3.1.  The exploded view of the engine</strong> </p>
+        <p>Even though internal combustion engines look quite simple, they are highly complex machines. There are hundreds of components that have to perform their functions satisfactorily to produce output power. There are two types of engines including spark ignition (SI) and compression-ignition (CI) engine. Let us now go through the important engine components and the nomenclature associated with an engine.</p>
+        <p>The major components of the engine and their functions are briefly described below.</p>
+        <p>
+          <strong>Cylinder Head:</strong> Cylinder head forms the top of the
+          combustion chamber. Contains the valves, the passageways for the fuel
+          mixture to move in and out of the engine.
+        </p>
+        <p>
+          <strong>Cylinder Block: </strong> The cylinder block is the main
+          supporting structure for the various components. The cylinders of a
+          multi-cylinder engine is cast as a single unit, called cylinder block.
+          The cylinder head is mounted on the cylinder block.
+        </p>
+        <p>
+          The cylinder head and cylinder block are provided with water jackets
+          in the case of water-cooling with cooling fins in the case of
+          air-cooling. Cylinder head gasket is incorporated between the cylinder
+          block and cylinder head. The cylinder head is held tight to the
+          cylinder block by number of bolts or studs. The bottom portion of the
+          cylinder block is called crankcase. A cover called crankcase, which
+          becomes a sump for lubricating oil is fastened to the bottom of the
+          crankcase. The inner surface of the cylinder block, which is machined
+          and finished accurately to cylindrical shape.
+        </p>
+        <p>
+          <strong>Combustion Chamber:</strong> The space enclosed in the upper
+          part of the cylinder, by the cylinder head and the piston top during
+          the combustion process, is called the combustion chamber. The
+          combustion of fuel and the consequent release of thermal energy
+          results in the building up of pressure in this part of the cylinder.
+        </p>
+        <p>
+          <strong>Cylinder: </strong> As the name implies it is a cylindrical
+          vessel or space in which the piston makes a reciprocating motion. The
+          varying volume created in the cylinder during the operation of the
+          engine is filled with the working air fuel mixture and affected by
+          different thermodynamic processes. The cylinder is supported in the
+          cylinder block.
+        </p>
+        <p>
+          <strong>Piston: </strong> It is a cylindrical component fitted into
+          the cylinder forming the moving boundary of the combustion chamber. It
+          fits perfectly (snugly) into the cylinder providing a gas-tight space
+          with the piston rings and the lubricant. It forms the first link in
+          transmitting the gas forces to the output shaft.
+        </p>
+        <p>
+          <strong>Piston Pins: </strong> Piston Pins also known as the wrist
+          pin, it connects the piston to the small end of the connecting rod. It
+          transfers the force and allows the rod to swing back and forth.
+        </p>
+        <p>
+          <strong>Piston Rings: </strong> Piston rings, fitted into the slots
+          around the piston, provide a tight seal between the piston and the
+          cylinder wall thus preventing leakage of combustion gases.
+        </p>
+        <p>
+          <strong>Connecting Rod: </strong> It interconnects the piston and the
+          crankshaft and transmits the gas forces from the piston to the
+          crankshaft. The two ends of the connecting rod are called as small end
+          and the big end. Small end is connected to the piston by gudgeon pin
+          and the big end is connected to the crankshaft by crankpin.
+        </p>
+        <p>
+          <strong>Crankshaft: </strong> It converts the reciprocating motion of
+          the piston into useful rotary motion of the output shaft. In the
+          crankshaft of a single cylinder engine there is pair of crank arms and
+          balance weights. The balance weights are provided for static and
+          dynamic balancing of the rotating system. The crankshaft is enclosed
+          in a crankcase.
+        </p>
+        <p>
+          <strong>Flywheel: </strong> The net torque imparted to the crankshaft
+          during one complete cycle of operation of the engine fluctuates
+          causing a change in the angular velocity of the shaft. In order to
+          achieve a uniform torque an inertia mass in the form of a wheel is
+          attached to the output shaft and this wheel is called the flywheel.
+        </p>
+        <p>
+          <strong>Inlet Manifold: </strong> The pipe which connects the intake
+          system to the inlet valve of the engine and through which air or
+          air-fuel mixture is drawn into the cylinder is called the inlet
+          manifold.
+        </p>
+        <p>
+          <strong>Exhaust Manifold: </strong> The pipe that connects the exhaust
+          system to the exhaust valve of the engine and through which the
+          products of combustion escape into the atmosphere is called the
+          exhaust manifold.
+        </p>
+        <p>
+          <strong>Valve Train: </strong> A valve train is a series of parts used
+          to open and close the intake and exhaust ports. A valve is a movable
+          part that opens and closes a passageway. A camshaft controls the
+          movement of the valves, causing them to open and close at the proper
+          time. Springs are used to help close the valves.
+        </p>
+        <p>
+          <strong>Inlet and Exhaust valves: </strong> Valves are commonly
+          mushroom shaped poppet type. They are provided either on the cylinder
+          head or on the side of the cylinder for regulating the charge coming
+          into the cylinder (inlet valve) and for discharging the products of
+          combustion (exhaust valve) from the cylinder.
+        </p>
+        <p>
+          <strong>Camshaft: </strong> The camshaft and its associated parts
+          control the opening and closing of the two valves. The associated
+          parts are push rods, rocker arms, valve springs and tappets. This
+          shaft also provides the drive to the ignition system. The camshaft is
+          driven by the crankshaft through timing gears.
+        </p>
+        <p>
+          <strong>Cams: </strong> These are made as integral parts of the
+          camshaft and are designed in such a way to open the valves at the
+          correct timing and to keep them open for the necessary duration.
+        </p>
+        <p>
+          <strong>Timing Gears: </strong> These gears drive the camshaft from
+          the crankshaft.
+        </p>
+      </div>
+
+      <!-- Vocabulary and pharse -->
+      <div class="w3-container" id="vocabulary" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Vocabulary and pharse.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <h2>Từ vựng chuyên ngành</h2>
+        <table style="width: 100%">
+          <thead>
+            <tr>
+              <th style="width: 25%">Từ vựng</th>
+              <th style="width: 25%">Phiên âm</th>
+              <th style="width: 25%">Phát âm</th>
+              <th style="width: 25%">Nghĩa</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!-- <audio src="../audio/vocabylary1/Amphibious vehicles.mp3"></audio> -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Reading -->
+      <div class="w3-container" id="reading" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Reading.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+        <p>
+            Internal Combustion Engines: Powering the Automobile <br></br>
+          The engine is the heart of an automobile, providing the power to move the vehicle. Both gasoline and diesel engines are classified as internal combustion engines because the combustion process, where the fuel mixture is burned, occurs inside the engine. This combustion generates thermal energy which is converted into mechanical energy to drive the wheels.</p>
+        <p>
+          Engine Construction<br></br>
+          The engine consists of a cylinder block and a cylinder head. The cylinder block is typically cast from iron or aluminum and houses the cylinders, crankshaft, and water jackets for water-cooling. Some engines may use air-cooling with cooling fins instead. The cylinder head sits on top of the cylinder block, sealed by a cylinder head gasket. It contains the combustion chamber, valves, and valve train. 
+        </p>
+        <p>
+          Engine Operation<br></br>
+          Most automobile engines operate on a four-stroke cycle:
+          Intake stroke: The intake valve opens, and the piston moves downward, drawing the fuel mixture into the cylinder. <br></br> 
+          Compression stroke: The intake valve closes, and the piston moves upward, compressing the fuel mixture.<br></br>
+          Power stroke: In a spark ignition (SI) engine, a spark ignites the fuel mixture, while in a compression-ignition (CI) engine (diesel), the heat of compression ignites the fuel. The expanding gases push the piston downward, generating power.<br></br>
+          Exhaust stroke: The exhaust valve opens, and the piston moves upward, expelling the exhaust gases.<br></br>
+          Engine Components<br></br>
+          Piston:  A cylindrical component that moves within the cylinder, transferring gas force to the connecting rod. Piston rings provide a tight seal to prevent leakage of gases.<br></br>
+        	Connecting Rod: Connects the piston to the crankshaft. The small end connects to the piston via the piston pin or gudgeon pin (wrist pin), and the big end connects to the crankshaft.<br></br>
+          Crankshaft: Converts the linear motion of the piston into rotary motion. It has crank webs to which the connecting rods are attached.<br></br>
+          Valve Train: Controls the opening and closing of the valves. This system includes the camshaft, cams, timing gears or drive chain, pushrods, and tappets.<br></br>
+          Intake and Exhaust Manifolds: The inlet manifold delivers the fuel mixture to the intake ports of the cylinder head, while the exhaust manifold carries exhaust gases away from the exhaust ports.<br></br>
+          Flywheel:  A heavy disc mounted on the crankshaft that helps to smooth out engine operation.<br></br>
+          Crankcase: The lower part of the engine that encloses the crankshaft and contains the sump (oil pan), which holds the lubricating oil.<br></br>
+          This simplified explanation provides a basic understanding of internal combustion engines and their key components.
+        </p>
+      </div>
+
+       <!-- Fill of blank -->
+       <div class="w3-container" id="fillOfBlank" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Fill of Blank.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+
+        <div id="question-box"></div>
+        <!-- <div class="btnbox">
+          <button
+            class="btn btn-primary"
+            id="btn_ultil_point"
+            style="margin-right: 24px"
+          >
+            Answer:
+          </button>
+          <span id="multichoice-result">Kết quả</span>
+        </div> -->
+      </div>
+
+      <!-- Multichoice -->
+      <div class="w3-container" id="multichoice" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Multichoice</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+
+        <div id="fillbox"></div>
+        <div class="btnbox">
+          <button
+            class="btn btn-primary"
+            id="btn-fill-point"
+            style="margin-right: 24px"
+          >
+            Answer:
+          </button>
+          <span id="fillresult">Kết quả</span>
+        </div>
+      </div>
+
+      <!-- Dialogue -->
+      <div class="w3-container" id="dialogue" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Dialogue.</b></h1>
+        <hr style="width: 50px; border: 5px solid green" class="w3-round" />
+       
+        <div>
+          <video width="100%" controls class="player" id="myvideo">
+            <source src="../video/Bài 3.mov" />
+          </video>
+          <button type="text" class="btn-play" id="play">Play</button>
+        </div>
+      </div>
+
+      <!-- End page content -->
+    </div>
+
+    <!-- W3.CSS Container -->
+    <div
+      class="w3-light-grey w3-container w3-padding-32"
+      style="margin-top: 75px; padding-right: 58px"
+    >
+      <p class="w3-right">
+        Powered by
+        <a href="#" title="W3.CSS" target="_blank" class="w3-hover-opacity"
+          >HongHai-Team</a
+        >
+      </p>
+    </div>
+
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+
+      // Modal Image Gallery
+      function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+    </script>
+
+    <!-- <script type = "module" src = "../js/script.js"></script> -->
+    <!-- <script type="module" src="../data/data.js"></script> -->
+    <script src="./lesson3.js"></script>
+  </body>
+</html>
